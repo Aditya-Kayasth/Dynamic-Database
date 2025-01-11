@@ -1,0 +1,17 @@
+<div class="job">
+    <div>
+        <h3>{{ job["title"] }}</h3>
+        <p><b>Location:</b> {{ job["location"] }}</p>
+
+        {% if "Salary" in job %}
+        <p><b>Salary:</b> {{ job["Salary"] }}</p>
+        {% endif %}
+        
+        <p><b>Job Type:</b> {{ job["type"] }}</p>
+    </div>
+    
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=someone@yoursite.com&su=Application for {{ job['title'] }}" target = "_blank">
+        <button>Apply</button>
+    </a>
+
+</div>

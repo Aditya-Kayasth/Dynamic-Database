@@ -64,7 +64,7 @@ JOBS = [{
 }]
 
 
-@app.route('/jobs')
+@app.route('/jobs_list')
 def list_jobs():
   return jsonify(JOBS)
 

@@ -9,10 +9,14 @@
 #---------------------------------------------------------------------------------------------
 
 from sqlalchemy import create_engine, text
+import os
+from dotenv import load_dotenv
 
 # Database connection details
 
-engine = create_engine("mysql+pymysql://sql12757501:eUhn2s2xJf@sql12.freesqldatabase.com:3306/sql12757501?charset=utf8mb4",echo=True)
+load_dotenv()
+
+engine = create_engine(os.getenv("DB_CONNECTION"),echo=True)
 
 # Using the engine to connect and execute a query
 with engine.connect() as conn:

@@ -64,7 +64,7 @@ JOBS = [{
 }]
 
 
-@app.route('/jobs_list')
+@app.route('/jobs')
 def list_jobs():
   return jsonify(JOBS)
 
@@ -72,6 +72,7 @@ def list_jobs():
 @app.route('/')
 def hello_world():
   return render_template('home.html', jobs=JOBS)
+
 
 
 if __name__ == "__main__":

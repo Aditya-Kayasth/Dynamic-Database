@@ -16,15 +16,30 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-engine = create_engine(os.getenv("DB_CONNECTION"),echo=True)
+engine = create_engine(os.getenv("DB_CONNECTION"))
 
 # Using the engine to connect and execute a query
-with engine.connect() as conn:
-    result = conn.execute(text("SELECT * FROM jobs"))
-    
-    # Convert rows to a list of dictionaries
+
+def jobs_dict():
+
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT * FROM jobs"))
+        
+        # Convert rows to a list of dictionaries
 
 
-    result_dicts = [dict(row) for row in result.mappings()] # We could used a 
-    
+        result_dicts = [dict(row) for row in result.mappings()] # We could have used the .all()
+        
+    return result_dicts
 
+def load_job_from_db(id):
+
+    with engine.connect() as conn:
+
+
+        result = conn.execute(text(f"SELECT * FROM jobs WHERE id = {id}"))
+
+        row = result.mappings().first()
+          # Get the first matching row as a mapping
+
+        return dict(row) if row else None

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kaam Dhanda</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(to right, #3b82f6, #6366f1);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            color: #3b82f6;
+            margin-bottom: 20px;
+            font-size: 1.7rem;
+        }
+
+        .container p {
+            margin: 15px 0;
+        }
+
+        .illustration {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .illustration img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .steps {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .steps li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9fafb;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #3b82f6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer a:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <!-- About Section -->
+    <div class="container">
+        <h2>Our Journey</h2>
+        <p>Kaam Dhanda is more than just a job portal; it's a bridge between passionate individuals and life-changing opportunities. Here’s a glimpse of how we built and operate this platform:</p>
+
+        <!-- Illustrations Section -->
+        <div class="illustration">
+            <h2>How It Works</h2>
+
+            <!-- Workflow Illustration -->
+            <img src="https://via.placeholder.com/800x400?text=Job+Data+to+Server+Workflow" alt="Workflow Illustration">
+            <p>
+                1. We source job data from various verified providers and store it securely in our <b>FreeSQLDatabase server</b>.<br>
+                2. When users browse and apply for jobs, their application data is sent back to the database in real-time.
+            </p>
+
+            <!-- Development Illustration -->
+            <img src="https://via.placeholder.com/800x400?text=Version+Control+System" alt="Version Control Illustration">
+            <p>
+                3. Our team developed this platform using agile practices and version control through <b>Git</b> and <b>GitHub</b> for collaboration.
+            </p>
+
+            <!-- Hosting Illustration -->
+            <img src="https://via.placeholder.com/800x400?text=Render+Hosting" alt="Hosting Illustration">
+            <p>
+                4. Finally, the website is hosted on <b>Render</b>, ensuring reliable and scalable performance for our users.
+            </p>
+        </div>
+
+        <!-- Steps Section -->
+        <h2>Key Steps in Our Development</h2>
+        <ul class="steps">
+            <li><b>Step 1:</b> Planning and collecting job data.</li>
+            <li><b>Step 2:</b> Building the backend with Python Flask for handling application data.</li>
+            <li><b>Step 3:</b> Designing an intuitive frontend for a smooth user experience.</li>
+            <li><b>Step 4:</b> Using FreeSQLDatabase to store job and application data.</li>
+            <li><b>Step 5:</b> Hosting the website on Render for seamless access worldwide.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kaam Dhanda. All rights reserved.</p>
+    </footer>
+</body>
+</html>

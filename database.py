@@ -49,25 +49,4 @@ def add_application_to_db(data,form_data):
         conn.commit()
 
 
-# def add_application_to_db(data, form_data):
-#     logging.debug(f"Data: {data}")
-#     logging.debug(f"Form Data: {form_data}")
-#     try:
-#         with engine.connect() as conn:
-#             query = text("""
-#                 INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url)
-#                 VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)
-#             """)
-#             conn.execute(query, {
-#                 "job_id": data['id'],
-#                 "full_name": form_data['name'],
-#                 "email": form_data["email"],
-#                 "linkedin_url": form_data["linkedin"],
-#                 "education": form_data["education"],
-#                 "work_experience": form_data["work_experience"],
-#                 "resume_url": form_data["resume"]
-#             })
-#             conn.commit()
-#     except SQLAlchemyError as e:
-#         logging.error(f"Database error: {e}")
-#         raise
+

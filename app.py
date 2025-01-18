@@ -55,6 +55,24 @@ def apply_to_job(id):
 
     return render_template("acknowledgement.html", user_form=form_data, data=data)  # Render acknowledgment page
 
+# Route for "About Us" page
+@app.route('/about')
+def about_us():
+    """
+    Displays the 'About Us' page.
+    This page can include details about the website, its purpose, and its development process.
+    """
+    return render_template("about-us.html")  # Render the 'about.html' template
+
+# Route for "Contact" page
+@app.route('/contact')
+def contact_us():
+    """
+    Displays the 'Contact' page.
+    This page can include contact information or a form to reach out to the website admins.
+    """
+    return render_template("contact-us.html")  # Render the 'contact.html' template
+
 # Entry point for the application
 if __name__ == "__main__":
     """

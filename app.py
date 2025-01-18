@@ -8,15 +8,18 @@ def list_jobs():
     result_dicts = jobs_dict()
     return jsonify(result_dicts)
 
+
 @app.route('/')
-def hello_world():
+def hello_world(): #1
     result_dicts = jobs_dict()
     return render_template('home.html', jobs=result_dicts)
+
 
 @app.route('/job/<id>')
 def show_job(id):
     loaded_job = load_job_from_db(int(id))
     return render_template("job.html", job=loaded_job)
+
 
 @app.route('/job/<id>/apply', methods=['POST'])
 def apply_to_job(id):

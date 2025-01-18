@@ -18,7 +18,7 @@
 
         /* Navigation Bar */
         nav {
-            background: #1a202c; /* Dark Navy Blue */
+            background: #1a202c;
             color: white;
             padding: 15px 20px;
             display: flex;
@@ -102,26 +102,69 @@
             font-size: 1.1rem;
         }
 
-        /* Apply Button Section */
-        .apply-button {
-            text-align: center;
-            margin-top: 20px;
+        /* Form Section */
+        .form-section {
+            margin-top: 40px;
         }
 
-        .apply-button a {
-            display: inline-block;
-            text-decoration: none;
+        .form-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            color: #3b82f6;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 98%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-group input[type="url"] {
+            font-style: italic;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
             background-color: #3b82f6;
             color: white;
-            padding: 12px 25px;
-            font-size: 1.2rem;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .apply-button a:hover {
+        .submit-btn:hover {
             background-color: #2563eb;
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         /* Footer */
@@ -161,32 +204,63 @@
 
             <p><b>Qualifications:</b> </p>
             <ul>
-            {% for i in job["qualifications"].split("\n") %}
-            <li>{{i}}</li>
-            {% endfor %}
+                {% for i in job["qualifications"].split("\n") %}
+                <li>{{ i }}</li>
+                {% endfor %}
             </ul>
-            
+
             <p><b>Responsibilities:</b></p>
             <ul>
-                {% for i in job["qualifications"].split("\n") %}
-                <li>{{i}}</li>
+                {% for i in job["responsibilities"].split("\n") %}
+                <li>{{ i }}</li>
                 {% endfor %}
             </ul>
         </div>
 
-        <div class="apply-button">
-            <a href="mailto:kayasthav@rknec.edu?subject=Application%20for%20{{ job['title'] }}&body=Dear%20Hiring%20Manager,%0A%0AI%20am%20writing%20to%20express%20my%20interest%20in%20the%20{{ job['title'] }}%20position%20at%20your%20company.%0A%0A[Please%20add%20specific%20details%20about%20your%20qualifications%20and%20why%20you%20are%20interested%20in%20the%20role.]%0A%0AThank%20you%20for%20considering%20my%20application.%0A%0ASincerely,%0A[Your%20Name]%0A[Your%20Contact%20Information]"
-                target="_blank">
-                Apply Now
-            </a>
+        <!-- Application Form Section -->
+        <div class="form-section">
+            <h2>Apply for this Position</h2>
+            <form action="/job/{{job['id']}}/apply" method="post"> 
+                <!---With the method post it does not send the data to url-->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn Profile:</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="Enter your LinkedIn profile link" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="education">Education:</label>
+                    <textarea id="education" name="education" placeholder="Provide your educational background" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="work-experience">Work Experience / Projects / Contributions:</label>
+                    <textarea id="work-experience" name="work_experience" placeholder="Detail your work experience, projects, or contributions" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Resume Link:</label>
+                    <input type="url" id="resume" name="resume" placeholder="Provide a link to your resume (e.g., Google Drive)" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
         </div>
     </div>
 
     <!-- Footer -->
     <footer id="contact-us">
-        <p>&copy; 2024 Kam Dhanda. All rights reserved.</p>
+        <p>&copy; 2025 Kam Dhanda. All rights reserved.</p>
     </footer>
 </body>
 
 </html>
-</p>

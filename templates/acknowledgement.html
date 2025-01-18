@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Acknowledgement</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #3b82f6;
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        .details {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .details h2 {
+            font-size: 1.5rem;
+            color: #3b82f6;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #3b82f6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        a:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Application Submitted Successfully!</h1>
+        <p>Thank you for applying for <b>"{{data.title}}"</b> position. Here are the details of the job you applied for:</p>
+
+
+        <div class="details">
+            <h2>Your Application Details</h2>
+            <p><strong>Full Name:</strong> {{ user_form.name }}</p>
+            <p><strong>Email Address:</strong> {{ user_form.email }}</p>
+            <p><strong>LinkedIn Profile:</strong> <a href="{{ user_form.linkedin }}" target="_blank">{{ user_form.linkedin }}</a></p>
+            <p><strong>Education:</strong></p>
+            <p>{{ user_form.education }}</p>
+            <p><strong>Work Experience / Projects:</strong></p>
+            <p>{{ user_form.work_experience }}</p>
+            <p><strong>Resume:</strong> <a href="{{ user_form.resume }}" target="_blank">View Resume</a></p>
+        </div>
+
+        <p>We will review your application and get back to you soon. If you have any questions, feel free to reach out.</p>
+
+        <a href="/">Return to Home</a>
+    </div>
+</body>
+</html>

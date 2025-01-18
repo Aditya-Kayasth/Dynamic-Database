@@ -1,45 +1,39 @@
-
-#---------------------------------------------------------------------------------------------
-# Host: sql12.freesqldatabase.com
-# Database name: sql12757501
-# Database user: sql12757501
-# Database password: eUhn2s2xJf
-# Port number: 3306
-# LINK: mysql+pymysql://<user>:<password>@<host>:<port>/<databasename>?<options>
-#---------------------------------------------------------------------------------------------
-
 from sqlalchemy import create_engine, text
 import os
 from dotenv import load_dotenv
 
-# Database connection details
-
+# Load environment variables
 load_dotenv()
 
+# Create database engine
 engine = create_engine(os.getenv("DB_CONNECTION"))
 
-# Using the engine to connect and execute a query
-
 def jobs_dict():
-
     with engine.connect() as conn:
         result = conn.execute(text("SELECT * FROM jobs"))
-        
         # Convert rows to a list of dictionaries
-
-
-        result_dicts = [dict(row) for row in result.mappings()] # We could have used the .all()
-        
-    return result_dicts
+        return [dict(row) for row in result.mappings()]
 
 def load_job_from_db(id):
-
     with engine.connect() as conn:
-
-
-        result = conn.execute(text(f"SELECT * FROM jobs WHERE id = {id}"))
-
+        query = text("SELECT * FROM jobs WHERE id = :id")
+        result = conn.execute(query, {"id": id})
         row = result.mappings().first()
-          # Get the first matching row as a mapping
-
         return dict(row) if row else None
+
+
+def add_application_to_db(data,form_data):
+    with engine.connect() as conn:
+        query = text("""
+            INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url)
+            VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)
+        """)
+        conn.execute(query, {
+            "job_id": data['id'],
+            "full_name": form_data['name'],
+            "email": form_data["email"],
+            "linkedin_url": form_data["linkedin"],
+            "education": form_data["education"],
+            "work_experience": form_data["work_experience"],
+            "resume_url": form_data["resume"]
+        })
